@@ -1,0 +1,394 @@
+td.titlebar {
+	background-color: #89ADF8;
+	border: 1px solid #624A00;
+	text-align: right;
+	font-family: "Trebuchet MS", Tahoma, Verdana, Arial;
+	font-size: 1.17em;
+	font-weight: bold;
+	color: #062D7D;
+	font-style: oblique;
+	padding: 2px 5px 2px 2px;
+}
+
+td.menubar {
+	background-color: #C4D6FA;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.87em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 5px;
+	border-top: 1px none #624A00;
+	border-right: 1px none #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+td.mainpage {
+	background-color: #DCE7F4;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.83em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 5px;
+	border-top: 1px none #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+td.rightborder {
+	border-top: 1px #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+
+a.menu:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.83em;
+	color: #0066B2;	
+}
+
+a.menu:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.83em;
+	color: #00335A;
+}
+
+a:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #2E5F78;
+	
+	
+}
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #2E5F78;
+	
+}
+
+a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #2D9ACD;
+	
+}
+
+a.menu:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.83em;
+	color: #0066B2;
+}
+
+td.tabhead {
+	background-color: #C4D6FA;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.89em;
+	font-weight: bold;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px solid #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px dashed #624A00;
+	border-left: 1px solid #624A00;
+}
+
+h3
+{
+		font-size: 0.83em;	
+}
+
+td.tabmain {
+	background-color: #C6D5E6;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px none #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+td.formbuttons {
+	background-color: #89ADF8;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #062D7D;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px none #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+td.formtabmain {
+	font-weight: bold;
+	border-top: 1px none #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333300;
+	font-size: 0.80em;
+	
+}
+
+td.formfieldlight {
+	background-color: #DCE7F4;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border: none;
+}
+
+table.formfieldlight {
+	background-color: #DCE7F4;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border: none;
+}
+tr.formfieldlight {
+	background-color: #DCE7F4;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border: none;
+}
+
+td.formfielddark {
+	background-color: #CEDFF3;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border: none;
+}
+
+
+
+td.formfieldbottomborder {
+	border-top: 1px none #624A00;
+	border-right: 1px none #624A00;
+	border-bottom: 1px dashed #624A00;
+	border-left: 1px none #624A00;
+}
+
+td.formfieldaligntright {
+	text-align: right;
+}
+
+td.formfieldaligncenter {
+	text-align: center;
+}
+
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.80em;
+	color: #330000;
+	background-color: #F4EDDC;
+}
+
+textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	color: #330000;
+	background-color: #F4EDDC;
+}
+
+select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em ;
+	color: #330000;
+	background-color: #F4EDDC;
+}
+select option.private {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em ;
+	color: #330000;
+	background-color: pink;
+}
+a.copyright
+{
+	font-size: 0.89em;	
+}
+
+p.copyright
+{
+  font-size: 0.89em;	
+}
+
+td.tablogin {
+	background-color: #89ADF8;
+	text-align: center;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 0.89em;
+	font-weight: bold;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px solid #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px dashed #624A00;
+	border-left: 1px solid #624A00;
+}
+
+body.zeromargin {
+	margin-top: 0mm;
+	margin-left: 0mm;
+	margin-right: 0mm;
+	margin-bottom: 0mm;
+}
+
+td.formfieldlightbold {
+	background-color: #DCE7F4;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: bold;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+}
+
+td.formfielddarkbold {
+	background-color: #CEDFF3;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: bold;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border: none;
+}
+
+td.formfieldgroove {
+	border-top: 1px groove #624A00;
+	border-bottom: 1px groove #624A00;
+	border-left: 1px groove #624A00;
+	border-right: 1px groove #624A00;	
+}
+
+td.formfieldgroovetop {
+	border-top: 1px groove #624A00;
+}
+
+td.formfieldgroovebottom {
+	border-bottom: 1px groove #624A00;
+}
+
+td.formfieldgrooveleft {
+	border-left: 1px groove #624A00;
+}
+
+td.formfieldgrooveright {
+	border-right: 1px groove #624A00;
+}
+
+td.formbuttonleft {
+	background-color: #E5D5A5;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px groove #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+td.formbuttonright {
+	background-color: #E5D5A5;
+	text-align: right;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px groove #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+td.formbuttoncenter {
+	background-color: #E5D5A5;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px groove #624A00;
+	border-bottom: 1px solid #624A00;
+}
+
+td.formbuttonbottom {
+	background-color: #C4D6FA;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em;
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+	padding: 2px 5px 2px 2px;
+	border-top: 1px none #624A00;
+	border-right: 1px solid #624A00;
+	border-bottom: 1px solid #624A00;
+	border-left: 1px solid #624A00;
+}
+
+
+td.classbox{
+width:100px;
+background-color:#C0D4AF;
+border:2px dotted black;
+padding:3px;
+}
+
+/* hyun */
+td.input-classes-cell{
+	border: 1px solid #999999;
+}
+
+div.class-file-list, div.class-file-list a, div.class-file-list a:visited{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.80em !important; 
+	font-weight: normal;
+	color: #663300;
+	font-style: normal;
+}
+

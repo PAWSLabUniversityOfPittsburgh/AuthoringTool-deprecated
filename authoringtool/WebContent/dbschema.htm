@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>QuizPack Authoring Database Structure</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="stylesheets/dbschema.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class = "general">
+<h2 class="general">QuizPack Authoring Database Schema</h2>
+<h3 class="general">Proposed Database location : kt1.exp.sis.pitt.edu<br />
+  Database Name : quizauthor</h3>
+<h3>Question Information [ Table name : question ] </h3>
+<h5> [ Stores information about questions ] </h5>
+<table width="615" class="general">
+  <tr> 
+    <td class="header">Column Name</td>
+    <td class="header">Type</td>
+    <td class="header">Description</td>
+  </tr>
+  <tr> 
+    <td width="111" class="primarykey">id</td>
+    <td width="137" class="general">int</td>
+    <td width="349" class="general">question identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">authorid</td>
+    <td class="general">int</td>
+    <td class="general">Author - maps to users table </td>
+  </tr>
+  <tr> 
+    <td class="general">permission</td>
+    <td class="general">int</td>
+    <td class="general">Permission to be granted by author, overrides def. permission 
+      for group artifacts</td>
+  </tr>
+  <tr> 
+    <td class="general">title</td>
+    <td class="general">varchar(63)</td>
+    <td class="general">name</td>
+  </tr>
+  <tr> 
+    <td class="general">desc</td>
+    <td class="general">varchar(255)</td>
+    <td class="general">description of the question</td>
+  </tr>
+  <tr> 
+    <td class="general">code</td>
+    <td class="general">clob</td>
+    <td class="general">the source code for question</td>
+  </tr>
+  <tr> 
+    <td class="general">minrandom</td>
+    <td class="general">int</td>
+    <td class="general">minimum possible value of randomized variable</td>
+  </tr>
+  <tr> 
+    <td class="general">maxrandom</td>
+    <td class="general">int</td>
+    <td class="general">maximum possible value of randomized variable</td>
+  </tr>
+  <tr> 
+    <td class="general">answertype</td>
+    <td class="general">char(10)</td>
+    <td class="general">int/float/printf</td>
+  </tr>
+  <tr> 
+    <td class="general">targetvariable</td>
+    <td class="general">char(10)</td>
+    <td class="general">The variable who's value is asked. null when answertype=printf</td>
+  </tr>
+  <tr> 
+    <td class="general">difficulty</td>
+    <td class="general">float</td>
+    <td class="general">difficulty level of question [ 0 - 1]</td>
+  </tr>
+  <tr>
+    <td class="general">complexity</td>
+    <td class="general">float</td>
+    <td class="general">0 - 1</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>Quiz Information [ Table name : quiz ]*</h3>
+<h5> [ Stores information about quiz ]</h5>
+<table class="general">
+  <tr> 
+    <td class="header">Column Name</td>
+    <td class="header">Type</td>
+    <td class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="primarykey">id</td>
+    <td class="general">int</td>
+    <td class="general">quiz identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">authorid</td>
+    <td class="general">int</td>
+    <td class="general">Author - maps to users table</td>
+  </tr>
+  <tr> 
+    <td class="general">permission</td>
+    <td class="general">int</td>
+    <td class="general">Permission to be granted by author, overrides rights</td>
+  </tr>
+  <tr> 
+    <td class="general">title</td>
+    <td class="general">varchar(63)</td>
+    <td class="general">name. Also used as directory name for compiled quiz</td>
+  </tr>
+  <tr> 
+    <td class="general">desc</td>
+    <td class="general">varchar(255)</td>
+    <td class="general">description</td>
+  </tr>
+  <tr> 
+    <td class="general">lastcompiled</td>
+    <td class="general">date</td>
+    <td class="general">Date of last compilation</td>
+  </tr>
+  <tr> 
+    <td class="general">lastmodified</td>
+    <td class="general">date</td>
+    <td class="general">Date of last modification</td>
+  </tr>
+</table>
+<p class="createdefn">*Changes from prev. version : compiled flag deleted, added 
+  2 date fields. compiled flag will be derived from the 2 date fields. If lastcompiled 
+  and lastmodified date is different, then latest quiz is not compiled</p>
+<h3>&nbsp;</h3>
+<h3>Quiz - Question Mapping [ Table name : quizquesmap] </h3>
+<h5>Specifies the questions contained in a quiz </h5>
+<table width="357" class="general">
+  <tr> 
+    <td class="header">Column Name</td>
+    <td class="header">Type</td>
+    <td class="header">Description</td>
+  </tr>
+  <tr> 
+    <td width="98" class="foreignkey">quizid</td>
+    <td width="61" class="general">int</td>
+    <td width="180" class="general">quiz identifier</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">questionid</td>
+    <td class="general">int</td>
+    <td class="general">question identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">order</td>
+    <td class="general">tinyint</td>
+    <td class="general">question position in quiz</td>
+  </tr>
+</table>
+<h3>&nbsp;</h3>
+<h3>Quiz - Group Permissions Mapping [ Table name : quizgroupmap] </h3>
+<h5>Specifies which groups have access to which quizzes</h5>
+<table width="429" class="general">
+  <tr> 
+    <td class="header">Column Name</td>
+    <td class="header">Type</td>
+    <td class="header">Description</td>
+  </tr>
+  <tr> 
+    <td width="96" class="foreignkey">quizid</td>
+    <td width="63" class="general">int</td>
+    <td width="252" class="general">quiz identifier</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">groupid</td>
+    <td class="general">int</td>
+    <td class="general">question identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">permission</td>
+    <td class="general">tinyint</td>
+    <td class="general">permission for this quiz to this group</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>Question - Group Permissions Mapping [ Table name : quesgroupmap] </h3>
+<h5>Specifies which groups have access to which questions</h5>
+<table width="524" class="general">
+  <tr> 
+    <td class="header">Column Name</td>
+    <td class="header">Type</td>
+    <td class="header">Description</td>
+  </tr>
+  <tr> 
+    <td width="101" class="foreignkey">questionid</td>
+    <td width="69" class="general">int</td>
+    <td width="336" class="general">quiz identifier</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">groupid</td>
+    <td class="general">int</td>
+    <td class="general">question identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">permission</td>
+    <td class="general">tinyint</td>
+    <td class="general">permission for this question to this group</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3> Question - Concept Mapping [ Table name : quesconceptmap ]</h3>
+<h5> [ tells which concepts are addressed in a question ]</h5>
+<table class="general">
+  <tr> 
+    <td width="94" class="header">Column Name</td>
+    <td width="59" class="header">Type</td>
+    <td width="185" class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">questionid</td>
+    <td class="general">int</td>
+    <td class="general">question identifier</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">concept</td>
+    <td class="general">char(10)</td>
+    <td class="general">concept name</td>
+  </tr>
+  <tr>
+    <td class="foreignkey">conceptrole</td>
+    <td class="general">char(10)</td>
+    <td class="general">prereq/goal</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>Quiz - Concept Mapping [ Table name : quizconceptmap ]</h3>
+<h5> [ tells which concepts are addressed in a quiz ]</h5>
+<table class="general">
+  <tr> 
+    <td width="94" class="header">Column Name</td>
+    <td width="59" class="header">Type</td>
+    <td width="185" class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">quizid</td>
+    <td class="general">int</td>
+    <td class="general">quiz identifier</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">concept</td>
+    <td class="general">char(10)</td>
+    <td class="general">concept name</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">conceptrole</td>
+    <td class="general">char(10)</td>
+    <td class="general">prereq/goal</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>Users Information [ Table name : user ]</h3>
+<h5>[ Stores information about users ]</h5>
+<table class="general">
+  <tr> 
+    <td class="header">Column Name</td>
+    <td class="header">Type</td>
+    <td class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="primarykey">userid</td>
+    <td class="general">int</td>
+    <td class="general">user identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">username</td>
+    <td class="general">varchar(25)</td>
+    <td class="general">name of the user</td>
+  </tr>
+  <tr> 
+    <td class="general">password</td>
+    <td class="general">varchar(15)</td>
+    <td class="general">password</td>
+  </tr>
+  <tr>
+    <td class="general">role</td>
+    <td class="general">char(10)</td>
+    <td class="general">user/superuser/admin.<br />
+      A superuser can create groups.<br />
+      An admin can do all that the superuser can and additionally can also assign 
+      superusers</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>Groups Information [ Table name : groups ]</h3>
+<table class="general">
+  <tr> 
+    <td width="94" class="header">Column Name</td>
+    <td width="78" class="header">Type</td>
+    <td width="121" class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="primarykey">id</td>
+    <td class="general">int</td>
+    <td class="general">group identifier</td>
+  </tr>
+  <tr> 
+    <td class="general">groupname</td>
+    <td class="general">varchar(50)</td>
+    <td class="general">name of the group</td>
+  </tr>
+  <tr> 
+    <td class="general">groupowner</td>
+    <td class="general">int</td>
+    <td class="general">userid, creater of the group, generally the faculty, has 
+      access rights equal to groupadmin</td>
+  </tr>
+  <tr> 
+    <td class="general">groupadmin</td>
+    <td class="general">int</td>
+    <td class="general">userid, manager of the group</td>
+  </tr>
+  <tr> 
+    <td class="general">defaultrights</td>
+    <td class="general">int</td>
+    <td class="general">Default rights of users in that group</td>
+  </tr>
+  <tr>
+    <td class="general">defaultpermissions</td>
+    <td class="general">int</td>
+    <td class="general">default permissions for artifacts created in the group. 
+      Specified by owner, modifiable by group admin</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>User-Group Mapping [ Table name : usergroupmap ]</h3>
+<h5> [ tells if a particular user has specific rights in a group ]</h5>
+<table class="general">
+  <tr> 
+    <td width="94" class="header">Column Name</td>
+    <td width="59" class="header">Type</td>
+    <td width="185" class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">userid</td>
+    <td class="general">int</td>
+    <td class="general">quiz identifier</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">groupid</td>
+    <td class="general">char(10)</td>
+    <td class="general">concept name</td>
+  </tr>
+  <tr>
+    <td class="foreignkey">rights</td>
+    <td class="general">int</td>
+    <td class="general">Specific rights for this user in the group. Overrides 
+      default rights for users in this group</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h3>Rights :</h3>
+<h5>1 : read - access the quiz/question<br />
+  2 : write/use - modify the quiz/question [in contex of other groups, use this 
+  quiz or question for creating their own quizzes/questions]<br />
+  4 : create - create a quiz/question<br />
+  8 : grant - grant permission to other groups [ in the question / quiz table 
+  , means groupadmin is allowed to grant access to this artifact to other groups 
+  , in usergroupmap table means this user is a groupadmin] </h5>
+<p>sum the above to generate combination of rights</p>
+<hr />
+<h3>Types of users in the system</h3>
+<table class="general">
+  <tr> 
+    <td width="94" class="header">User Type</td>
+    <td width="185" class="header">Description</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">admin</td>
+    <td class="general">Can create superusers . Has all powers of superusers</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">superuser</td>
+    <td class="general">Can create groups. Becomes groupowner for created group. 
+      Has no rights over groups that are not created by him/her.</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">groupowner</td>
+    <td class="general">Always in context of a group. Can delete his/her created 
+      group. Can create quizzes and questions. Has all powers of groupadmin</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">groupadmin</td>
+    <td class="general">Always in context of a group. Can add/remove users to 
+      the group. Grant access of certain artifacts in the group to other groups. 
+      Can assign rights to individual users within the group.</td>
+  </tr>
+  <tr> 
+    <td class="foreignkey">author</td>
+    <td class="general">Always in context of a quiz / question. Has powers to 
+      assign R/W/G permissions to his/her created artifact.</td>
+  </tr>
+  <tr>
+    <td class="foreignkey">user</td>
+    <td class="general">General user. Its rights are by default assigned automatically 
+      using the group default rights. Can be granted special rights by the groupadmin. 
+      If it has create rights, it can become author. </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p class="createdefn"> Created :1-31-04 ; Modified : 3-25-04 - Girish Chavan </p> 
+<p>&nbsp;</p>
+</body>
+</html>

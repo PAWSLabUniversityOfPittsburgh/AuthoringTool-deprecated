@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Authoring Tool</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="stylesheets/authoring.css" rel="stylesheet" type="text/css" />
+
+<script language="JavaScript">
+<!--
+function handleRequest(){
+	var query = window.location.search;
+	if (query.length == 0)
+	{
+		return("");
+	}
+	else {
+		var action = query.substring(query.indexOf("=") + 1, query.length); 
+	 	if(action == "LOGINFAILED") {
+			return("<h3><font face=\"Trebuchet MS, Tahoma, Verdana, Arial\">Incorrect Login. Please try again.</font></h3>");
+		}
+		else if (action == "LOGINREQD") {
+			return("<h3><font face=\"Trebuchet MS, Tahoma, Verdana, Arial\">You need to login to perform this operation</font></h3>");
+		}
+		else if (action == "LOGGEDOUT") {
+			return("<h3><font face=\"Trebuchet MS, Tahoma, Verdana, Arial\">You have successfully logged out.</font></h3>");
+		}
+		else if (action == "EXPIRED") {
+			return("<h3><font face=\"Trebuchet MS, Tahoma, Verdana, Arial\">Session has expired. Please Login again.</font></h3>");
+		}
+	}
+}
+
+
+-->
+
+</script>
+
+</head>
+
+
+<body bgcolor="#f4eddc">
+
+
+<center>
+<br/><br/><br/><br/><br/>
+<script type="text/javascript">var msg = handleRequest();
+                               if (typeof(msg) == "undefined")
+                            	   msg = "";
+                               document.write(msg); 
+                            	  
+</script><br/>
+<table cellpadding="0" cellspacing="0">
+	<form name="LoginForm" id="LoginForm" method="post" action="SecurityServlet">
+	<input type="hidden" name="action" value="LOGIN" />
+
+	<tr> 
+	 <td class="tablogin"><nobr>Authoring Tool</nobr>     </td>
+	</tr>
+	<tr> 
+	 <td class="formtabmain">
+
+	
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			 <td class="formfielddark  formfieldaligntright">Login :&nbsp;&nbsp;</td>
+			 <td><input type="text" name="login" /></td>
+	    </tr>
+	    <tr>
+		     <td class="formfieldlight formfieldaligntright">Password :&nbsp;&nbsp;</td>
+		     <td><input type="password" name="password" /></td>
+		</tr>
+	</table>
+	</td>
+	</tr>
+	<tr>
+	<td class="formbuttons">				    
+	  <input type="submit" name="Submit" value="Login" />&nbsp;&nbsp;<input type="reset" name="Reset" value="Reset" />
+	</td>
+    </tr> 
+	</form>
+</table>
+</center>
+</body>
+</html>
